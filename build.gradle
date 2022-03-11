@@ -21,10 +21,8 @@ repositories {
 
 dependencies {
     implementation name:'jpx-2.0.0'
-    implementation name:'GMapsFX-11.0.6-javadoc'
-    implementation name: 'GMapsFX-11.0.6-sources'
-    implementation name:'GMapsFX-11.0.6'
     implementation name:'unfolding.0.9.6'
+    implementation name: 'mapjfx-2.8.0-12'
 //    implementation name: 'javafx'
 //    implementation 'org.diirt.javafx:javafx-all:3.1.7'
     implementation 'org.slf4j:slf4j-api:1.7.36'
