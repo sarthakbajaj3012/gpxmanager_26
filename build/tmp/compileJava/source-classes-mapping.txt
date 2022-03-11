@@ -1,11 +1,11 @@
 softwaredesign/Input.java
  softwaredesign.Input
-softwaredesign/User.java
- softwaredesign.User
 softwaredesign/GPXParser.java
  softwaredesign.GPXParser
 softwaredesign/Sports.java
  softwaredesign.Sports
+softwaredesign/User.java
+ softwaredesign.User
 softwaredesign/Main.java
  softwaredesign.Main
 softwaredesign/Cycling.java

@@ -11,7 +11,7 @@ public abstract class Sports {
 
     private Double speed;
     private Integer id;
-    private String name;
+    public String name;
     private Double totalDistance;
     private Double maxElevation;
     private Double minElevation;

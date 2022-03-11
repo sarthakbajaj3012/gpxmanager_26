@@ -22,7 +22,7 @@ public class User {
         this.age = Integer.parseInt(input.getScan());
         out.println("Gender:");
         this.gender = input.getScan();
-        out.println("Height:");
+        out.println("Height in cm:");
         this.height = Integer.parseInt(input.getScan());
         out.println("Weight in kgs:");
         this.weight = Integer.parseInt(input.getScan());
