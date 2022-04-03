@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaredesign.FileInterfaceController">
+   <children>
+      <ComboBox fx:id="list" layoutX="132.0" layoutY="102.0" prefWidth="150.0" />
+      <Label fx:id="label1" layoutX="87.0" layoutY="106.0" prefHeight="17.0" prefWidth="48.0" text="Sports" />
+      <Label fx:id="label2" layoutX="97.0" layoutY="165.0" prefHeight="17.0" prefWidth="29.0" text="File" />
+      <Button fx:id="go" layoutX="177.0" layoutY="209.0" mnemonicParsing="false" onAction="#getData" text="GO" />
+      <TextField fx:id="filepath" layoutX="130.0" layoutY="161.0" />
+      <Label fx:id="distance" layoutX="89.0" layoutY="85.0" text="Distance" visible="false" />
+      <Label fx:id="time" layoutX="309.0" layoutY="62.0" text="Time" visible="false" />
+      <Label fx:id="min" layoutX="285.0" layoutY="85.0" text="Minimum elevation" visible="false" />
+      <Label fx:id="distancevalue" layoutX="195.0" layoutY="85.0" text="Label" visible="false" />
+      <Label fx:id="minvalue" layoutX="438.0" layoutY="85.0" text="Label" visible="false" />
+      <Label fx:id="max" layoutX="299.0" layoutY="107.0" text="Max elevation" visible="false" />
+      <Button fx:id="exit" layoutX="173.0" layoutY="280.0" mnemonicParsing="false" onAction="#exit" text="Exit" />
+      <Label fx:id="maxvalue" layoutX="438.0" layoutY="107.0" text="Label" visible="false" />
+      <Label fx:id="timevalue" layoutX="432.0" layoutY="62.0" text="Label" visible="false" />
+      <TextArea fx:id="speed" layoutX="323.0" layoutY="122.0" prefHeight="200.0" prefWidth="200.0">
+         <font>
+            <Font size="15.0" />
+         </font></TextArea>
+   </children>
+</AnchorPane>

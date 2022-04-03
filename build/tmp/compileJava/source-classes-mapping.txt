@@ -1,16 +1,40 @@
-softwaredesign/Input.java
- softwaredesign.Input
-softwaredesign/GPXParser.java
- softwaredesign.GPXParser
-softwaredesign/Sports.java
- softwaredesign.Sports
+softwaredesign/metrics/Time.java
+ softwaredesign.metrics.Time
+softwaredesign/inter/Output.java
+ softwaredesign.inter.Output
+softwaredesign/FXMLController.java
+ softwaredesign.FXMLController
+softwaredesign/metrics/Metrics.java
+ softwaredesign.metrics.Metrics
+softwaredesign/metrics/Distance.java
+ softwaredesign.metrics.Distance
+softwaredesign/metrics/MaxElevation.java
+ softwaredesign.metrics.MaxElevation
+softwaredesign/metrics/MinElevation.java
+ softwaredesign.metrics.MinElevation
+softwaredesign/Map.java
+ softwaredesign.Map
+softwaredesign/Event.java
+ softwaredesign.Event
+softwaredesign/inter/GUI.java
+ softwaredesign.inter.GUI
+softwaredesign/inter/Input.java
+ softwaredesign.inter.Input
+softwaredesign/History.java
+ softwaredesign.History
 softwaredesign/User.java
  softwaredesign.User
 softwaredesign/Main.java
  softwaredesign.Main
-softwaredesign/Cycling.java
- softwaredesign.Cycling
-softwaredesign/MetricsBuffer.java
- softwaredesign.MetricsBuffer
+softwaredesign/GPXData.java
+ softwaredesign.GPXData
+softwaredesign/Sports.java
+ softwaredesign.Sports
 softwaredesign/Running.java
  softwaredesign.Running
+softwaredesign/Cycling.java
+ softwaredesign.Cycling
+softwaredesign/metrics/Speed.java
+ softwaredesign.metrics.Speed
+softwaredesign/FileInterfaceController.java
+ softwaredesign.FileInterfaceController
