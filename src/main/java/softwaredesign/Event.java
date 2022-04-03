@@ -4,6 +4,9 @@ import io.jenetics.jpx.Route;
 import io.jenetics.jpx.Track;
 import io.jenetics.jpx.TrackSegment;
 import io.jenetics.jpx.WayPoint;
+import softwaredesign.sports.Cycling;
+import softwaredesign.sports.Running;
+import softwaredesign.sports.Sports;
 
 import java.io.FileNotFoundException;
 import java.util.List;

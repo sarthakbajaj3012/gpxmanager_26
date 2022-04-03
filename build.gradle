@@ -25,6 +25,7 @@ dependencies {
     implementation name:'jpx-2.0.0'
     implementation name:'mapjfx-2.8.0-12'
     implementation name: 'jxmapviewer2-2.7-SNAPSHOT'
+    implementation name: 'GMapsFX-11.0.6'
 //    implementation 'org.openjfx:javafx:17.0.2'
 //    implementation name:'javafx-sdk-18'
 //    implementation name:'unfolding.0.9.6'

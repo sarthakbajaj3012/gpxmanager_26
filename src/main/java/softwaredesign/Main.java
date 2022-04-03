@@ -1,22 +1,11 @@
 package softwaredesign;
 
-import javafx.fxml.Initializable;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import org.jxmapviewer.JXMapViewer;
-import softwaredesign.inter.GUI;
 import javafx.stage.Stage;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-
-import javax.swing.*;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.URL;
-import java.util.Objects;
-import java.util.ResourceBundle;
 
 import static javafx.application.Application.launch;
 

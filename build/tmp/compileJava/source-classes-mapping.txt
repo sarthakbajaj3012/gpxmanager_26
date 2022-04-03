@@ -1,0 +1,36 @@
+softwaredesign/sports/Running.java
+ softwaredesign.sports.Running
+softwaredesign/metrics/Time.java
+ softwaredesign.metrics.Time
+softwaredesign/sports/Cycling.java
+ softwaredesign.sports.Cycling
+softwaredesign/userinterface/FileInterfaceController.java
+ softwaredesign.userinterface.FileInterfaceController
+softwaredesign/metrics/Metrics.java
+ softwaredesign.metrics.Metrics
+softwaredesign/metrics/Distance.java
+ softwaredesign.metrics.Distance
+softwaredesign/metrics/MaxElevation.java
+ softwaredesign.metrics.MaxElevation
+softwaredesign/metrics/MinElevation.java
+ softwaredesign.metrics.MinElevation
+softwaredesign/Map.java
+ softwaredesign.Map
+softwaredesign/History.java
+ softwaredesign.History
+softwaredesign/sports/Sports.java
+ softwaredesign.sports.Sports
+softwaredesign/userinterface/MapController.java
+ softwaredesign.userinterface.MapController
+softwaredesign/Event.java
+ softwaredesign.Event
+softwaredesign/User.java
+ softwaredesign.User
+softwaredesign/Main.java
+ softwaredesign.Main
+softwaredesign/GPXData.java
+ softwaredesign.GPXData
+softwaredesign/metrics/Speed.java
+ softwaredesign.metrics.Speed
+softwaredesign/userinterface/FXMLController.java
+ softwaredesign.userinterface.FXMLController
