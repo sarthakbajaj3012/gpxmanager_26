@@ -10,12 +10,6 @@ import java.util.ArrayList;
 
 public class Running extends Sports {
 
-    public Speed speed;
-    public Time time;
-    public MaxElevation maxElevation;
-    public MinElevation minElevation;
-    public Distance distance;
-
     public Running(GPXData gpx){
         super.name = "Running";
             ArrayList<Metrics> metrics = getMetrics();

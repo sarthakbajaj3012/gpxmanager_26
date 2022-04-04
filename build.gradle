@@ -9,7 +9,7 @@ plugins {
 }
 
 group 'org.example'
-//version '1.0-SNAPSHOT'
+version '1.0-SNAPSHOT'
 version '1.0'
 
 sourceCompatibility = 11
@@ -32,7 +32,7 @@ dependencies {
 //    implementation name: 'mapjfx-2.8.0-12'
 //    implementation name: 'javafx'
 //    implementation 'org.diirt.javafx:javafx-all:3.1.7'
-//    implementation 'org.slf4j:slf4j-api:1.7.36'
+    implementation 'org.slf4j:slf4j-api:1.7.36'
 //    implementation 'ru.noties:lazy:1.1.0'
 
     testImplementation group: 'junit', name: 'junit', version: '4.13.1'
@@ -42,5 +42,5 @@ mainClassName = "softwaredesign.Main"
 
 javafx {
     version = "17.0.2"
-    modules = [ 'javafx.controls' , 'javafx.fxml' ]
+    modules = [ 'javafx.controls' , 'javafx.fxml','javafx.web' ]
 }

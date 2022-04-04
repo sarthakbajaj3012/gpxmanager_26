@@ -1,87 +1,44 @@
 package softwaredesign;
 
-
+import com.dlsc.gmapsfx.GoogleMapView;
+import com.dlsc.gmapsfx.javascript.object.*;
 import io.jenetics.jpx.WayPoint;
-import org.jxmapviewer.JXMapViewer;
-import org.jxmapviewer.painter.Painter;
-import org.jxmapviewer.viewer.GeoPosition;
 
-import java.awt.*;
-import java.awt.geom.Point2D;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Map implements Painter<JXMapViewer> {
-    private Color color = Color.RED;
-    private boolean antiAlias = true;
+public class Map {
 
-    private List<GeoPosition> track;
+    private GoogleMap map;
+    private GoogleMapView mapView;
 
-    public Map(List<WayPoint> track)
-    {
-        ArrayList<GeoPosition> temp =  new ArrayList<GeoPosition>();
-        // copy the list so that changes in the
-        // original list do not have an effect here
-        for(int i = 0; i < track.size();i++){
-            temp.add(new GeoPosition(track.get(i).getLatitude().doubleValue(),track.get(i).getLongitude().doubleValue()));
-        }
-        this.track = temp;
+    public Map(GoogleMapView mapView){
+        this.mapView = mapView;
     }
 
-    @Override
-    public void paint(Graphics2D g, JXMapViewer map, int w, int h)
-    {
-        g = (Graphics2D) g.create();
+    public void configureMap() {
+        MapOptions mapOptions = new MapOptions();
+        mapOptions.center(new LatLong(47.6097, -122.3331))
+                .mapType(MapTypeIdEnum.ROADMAP)
+                .zoom(9);
+        map = mapView.createMap(mapOptions, false);
 
-        // convert from viewport to world bitmap
-        Rectangle rect = map.getViewportBounds();
-        g.translate(-rect.x, -rect.y);
-
-        if (antiAlias)
-            g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-        // do the drawing
-        g.setColor(Color.BLACK);
-        g.setStroke(new BasicStroke(4));
-
-        drawRoute(g, map);
-
-        // do the drawing again
-        g.setColor(color);
-        g.setStroke(new BasicStroke(2));
-
-        drawRoute(g, map);
-
-        g.dispose();
     }
 
-    /**
-     * @param g the graphics object
-     * @param map the map
-     */
-    private void drawRoute(Graphics2D g, JXMapViewer map)
-    {
-        int lastX = 0;
-        int lastY = 0;
+    public void addMarker(Event e){
+        List<WayPoint> list = e.getWayPoints();
+        map.setCenter(new LatLong(list.get(0).getLatitude().doubleValue(),list.get(0).getLongitude().doubleValue()));
+        for(int i= 0; i < list.size(); i++ ){
 
-        boolean first = true;
+            MarkerOptions markeropt = new MarkerOptions();
 
-        for (GeoPosition gp : track)
-        {
-            // convert geo-coordinate to world bitmap pixel
-            Point2D pt = map.getTileFactory().geoToPixel(gp, map.getZoom());
-
-            if (first)
-            {
-                first = false;
-            }
-            else
-            {
-                g.drawLine(lastX, lastY, (int) pt.getX(), (int) pt.getY());
-            }
-
-            lastX = (int) pt.getX();
-            lastY = (int) pt.getY();
+            markeropt.position(new LatLong(list.get(i).getLatitude().doubleValue(),list.get(i).getLongitude().doubleValue()));
+            Marker marker = new Marker(markeropt);
+            map.addMarker(marker);
         }
+
+    }
+
+    public GoogleMap getMap() {
+        return map;
     }
 }

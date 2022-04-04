@@ -7,18 +7,17 @@ import javafx.stage.Stage;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 
+import java.util.Objects;
+
 import static javafx.application.Application.launch;
 
 
 public class Main extends Application {
-    //    public static void main (String[] args) throws FileNotFoundException {
     @Override
     public void start(Stage stage){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/softwaredesign/scene.fxml"));
-            //Group root = new Group(); //(getClass().getResource("/softwaredesign/scene.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/softwaredesign/scene.fxml")));
             Scene scene = new Scene(root);
-            //scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 
             stage.setTitle("JavaFX and Gradle");
             stage.setScene(scene);

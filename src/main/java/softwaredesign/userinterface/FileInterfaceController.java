@@ -1,25 +1,19 @@
 package softwaredesign.userinterface;
 
+import com.dlsc.gmapsfx.GoogleMapView;
+import com.dlsc.gmapsfx.javascript.object.*;
 import io.jenetics.jpx.WayPoint;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-import org.jxmapviewer.JXMapViewer;
-import org.jxmapviewer.OSMTileFactoryInfo;
-import org.jxmapviewer.painter.Painter;
-import org.jxmapviewer.viewer.DefaultTileFactory;
-import org.jxmapviewer.viewer.TileFactoryInfo;
 import softwaredesign.Event;
 import softwaredesign.History;
 import softwaredesign.Map;
-import softwaredesign.metrics.Metrics;
 
-import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.List;
@@ -41,60 +35,58 @@ public class FileInterfaceController implements Initializable {
     @FXML
     private TextArea speed;
 
+    @FXML
+    protected GoogleMapView mapView;
 
+    private GoogleMap map;
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-    private History historydata = new History();
+    private History historydata = History.getInstance();
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         list.setItems(FXCollections.observableArrayList("Running","Cycling"));
+        mapView.addMapInitializedListener(this::configureMap);
+    }
+    protected void configureMap() {
+        MapOptions mapOptions = new MapOptions();
+        mapOptions.center(new LatLong(47.6097, -122.3331))
+                .mapType(MapTypeIdEnum.ROADMAP)
+                .zoom(9);
+        map = mapView.createMap(mapOptions, false);
+
     }
 
     public void getData(javafx.event.ActionEvent actionEvent) throws FileNotFoundException {
-        Event eve = new Event(filepath.getText(),list.getValue());
+        Event eve =  Event.getInstance(filepath.getText(),list.getValue());
         historydata.add(eve.getSport());
-//        displaymap(eve.getWayPoints());
-            speed.setText(eve.getSport().printdata());
+        mapView.setVisible(true);
+        addMarker(eve);
+        speed.setText(eve.getSport().getData());
         speed.setVisible(true);
     }
 
-    public void displaymap(List<WayPoint> way){
-        JXMapViewer mapViewer = new JXMapViewer();
 
-        // Display the viewer in a JFrame
-        JFrame frame = new JFrame("JXMapviewer2 Example 2");
-        frame.getContentPane().add(mapViewer);
-        frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+    public void addMarker(Event e){
+        List<WayPoint> list = e.getWayPoints();
+        map.setCenter(new LatLong(list.get(0).getLatitude().doubleValue(),list.get(0).getLongitude().doubleValue()));
+        for(int i= 0; i < list.size(); i++ ){
 
-//         Create a TileFactoryInfo for OpenStreetMap
-        TileFactoryInfo info = new OSMTileFactoryInfo();
-        DefaultTileFactory tileFactory = new DefaultTileFactory(info);
-        mapViewer.setTileFactory(tileFactory);
+            MarkerOptions markeropt = new MarkerOptions();
 
-        Map map = new Map(way);
-        Painter<JXMapViewer> paint = map;
-        mapViewer.setOverlayPainter(paint);
+            markeropt.position(new LatLong(list.get(i).getLatitude().doubleValue(),list.get(i).getLongitude().doubleValue()));
+            Marker marker = new Marker(markeropt);
+            map.addMarker(marker);
+        }
+
     }
-
-
-
-
 
     public void exit(javafx.event.ActionEvent actionEvent) {
         System.exit(0);
     }
 
-    public void gethistory(ActionEvent actionEvent) {
-        String s="";
-        for(int i = 0; i< historydata.data().size();i++){
-            s +="\n" + historydata.data().get(i).printdata();
-        }
-        speed.setText(s);
+    public void getHistory(ActionEvent actionEvent) {
+       speed.setText(historydata.getHistory());
     }
+
 }

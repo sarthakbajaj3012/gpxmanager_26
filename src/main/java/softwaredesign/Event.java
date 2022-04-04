@@ -4,9 +4,8 @@ import io.jenetics.jpx.Route;
 import io.jenetics.jpx.Track;
 import io.jenetics.jpx.TrackSegment;
 import io.jenetics.jpx.WayPoint;
-import softwaredesign.sports.Cycling;
-import softwaredesign.sports.Running;
 import softwaredesign.sports.Sports;
+import softwaredesign.sports.SportsFactory;
 
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -14,20 +13,24 @@ import java.util.List;
 public class Event {
     private GPXData gpx;
     private Sports sport;
+    private static Event eve = null;
 
 
-    public Event(String filepath , String sportsname) throws FileNotFoundException , NullPointerException {
+
+    private Event(String filepath , String sportsname) throws FileNotFoundException , NullPointerException {
         this.gpx = new GPXData(filepath);
-        if(sportsname.equalsIgnoreCase("running")) sport = new Running(gpx);
-        else sport = new Cycling(gpx);
-
-
+        this.sport = new SportsFactory().getSports(sportsname,gpx);
     }
 
     public Sports getSport() {
         return sport;
     }
 
+    public static Event getInstance(String filepath , String sportsname) throws FileNotFoundException {
+        if(eve == null)
+            eve = new Event(filepath,sportsname);
+        return eve;
+    }
     public List<WayPoint> getWayPoints(){
         if (gpx.getgpx().getTracks().isEmpty() && gpx.getgpx().getRoutes().isEmpty()) {
             return  gpx.getgpx().getWayPoints();
