@@ -9,7 +9,7 @@ public class User {
     private String gender;
     private Integer height;
     private Integer weight;
-//    private Input input;
+
 
     public User(String name , Integer age , String gender , Integer height , Integer weight ) {
         this.name = name;
@@ -18,18 +18,7 @@ public class User {
         this.weight = weight;
         this.height = height;
     }
-//    public void setData(){
-//        out.println("Name:");
-//        this.name = input.getScan();
-//        out.println("Age:");
-//        this.age = Integer.parseInt(input.getScan());
-//        out.println("Gender:");
-//        this.gender = input.getScan();
-//        out.println("Height in cm:");
-//        this.height = Integer.parseInt(input.getScan());
-//        out.println("Weight in kgs:");
-//        this.weight = Integer.parseInt(input.getScan());
-//    }
+
     public Integer getAge() {
         return age;
     }

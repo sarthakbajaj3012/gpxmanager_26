@@ -3,7 +3,6 @@ package softwaredesign.sports;
 
 import softwaredesign.GPXData;
 import softwaredesign.metrics.*;
-import softwaredesign.sports.Sports;
 
 import java.util.ArrayList;
 

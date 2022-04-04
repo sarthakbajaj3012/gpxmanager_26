@@ -3,8 +3,6 @@ package softwaredesign.userinterface;
 import com.dlsc.gmapsfx.GoogleMapView;
 import com.dlsc.gmapsfx.javascript.object.*;
 import io.jenetics.jpx.WayPoint;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import softwaredesign.Event;
 import softwaredesign.History;
-import softwaredesign.Map;
 
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -58,9 +55,10 @@ public class FileInterfaceController implements Initializable {
     }
 
     public void getData(javafx.event.ActionEvent actionEvent) throws FileNotFoundException {
-        Event eve =  Event.getInstance(filepath.getText(),list.getValue());
+        Event eve =  new Event(filepath.getText(),list.getValue());
         historydata.add(eve.getSport());
         mapView.setVisible(true);
+        map.clearMarkers();
         addMarker(eve);
         speed.setText(eve.getSport().getData());
         speed.setVisible(true);

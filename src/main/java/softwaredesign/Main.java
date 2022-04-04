@@ -31,26 +31,4 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-//        Integer i = 1;
-//        GUI inter = new GUI();
-////        User user = new User(inter.getInput("Name:"),Integer.parseInt(inter.getInput("age:")) ,inter.getInput("Gender:"),Integer.parseInt(inter.getInput("Height:")),Integer.parseInt(inter.getInput("Weight:")));
-//        History buffer = new History();
-////        inter.getOut().displaydata("Hello" + user.getName() );
-//
-//        do {
-//            inter.getOut().displaydata("Choose from running and cycling or type exit for terminating");
-//            Sports data = null;
-//            String temp = inter.getIn().getScan();
-//            if(temp.equalsIgnoreCase("running")) data = new Running();
-//            else if(temp.equalsIgnoreCase("cycling")) data = new Cycling();
-//            else {
-//                if(!temp.equalsIgnoreCase("exit")) inter.getOut().displaydata("Invalid Sport!");;
-//                System.exit(0);
-//            }
-//            data.setID(i);
-//            i++;
-//            buffer.add(data);
-//            data.getData();
-//        } while(i > 0);
 }

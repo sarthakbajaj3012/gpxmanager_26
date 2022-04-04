@@ -13,11 +13,8 @@ import java.util.List;
 public class Event {
     private GPXData gpx;
     private Sports sport;
-    private static Event eve = null;
 
-
-
-    private Event(String filepath , String sportsname) throws FileNotFoundException , NullPointerException {
+    public Event(String filepath , String sportsname) throws FileNotFoundException , NullPointerException {
         this.gpx = new GPXData(filepath);
         this.sport = new SportsFactory().getSports(sportsname,gpx);
     }
@@ -26,11 +23,6 @@ public class Event {
         return sport;
     }
 
-    public static Event getInstance(String filepath , String sportsname) throws FileNotFoundException {
-        if(eve == null)
-            eve = new Event(filepath,sportsname);
-        return eve;
-    }
     public List<WayPoint> getWayPoints(){
         if (gpx.getgpx().getTracks().isEmpty() && gpx.getgpx().getRoutes().isEmpty()) {
             return  gpx.getgpx().getWayPoints();
