@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaredesign.userinterface.UserController">
+   <children>
+      <Label layoutX="99.0" layoutY="73.0" text="Name" />
+      <TextField id="text1" fx:id="text1" layoutX="170.0" layoutY="69.0" />
+      <Label layoutX="106.0" layoutY="121.0" text="Age" />
+      <TextField id="text2" fx:id="text2" layoutX="170.0" layoutY="116.0" />
+      <Label layoutX="97.0" layoutY="174.0" text="Sex/Gender" />
+      <TextField id="text4" fx:id="text4" layoutX="170.0" layoutY="227.0" />
+      <TextField id="text5" fx:id="text5" layoutX="170.0" layoutY="279.0" />
+      <Label layoutX="103.0" layoutY="232.0" text="Height" />
+      <Label layoutX="106.0" layoutY="284.0" text="Weight" />
+      <Button id="button1" fx:id="button1" layoutX="223.0" layoutY="349.0" mnemonicParsing="false" onAction="#setUser" prefHeight="26.0" prefWidth="68.0" text="Submit" />
+      <ChoiceBox fx:id="text3" layoutX="175.0" layoutY="170.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
